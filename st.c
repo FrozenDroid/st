@@ -94,7 +94,7 @@ char *argv0;
 				+ histsize + 1) % histsize] : term.line[(y) - term.scr])
 
 /* constants */
-#define ISO14755CMD		"dmenu -w %lu -p codepoint: </dev/null"
+#define ISO14755CMD		"dmenu -p codepoint: </dev/null"
 
 enum glyph_attribute {
 	ATTR_NULL       = 0,
@@ -2736,13 +2736,12 @@ tprinter(char *s, size_t len)
 void
 iso14755(const Arg *arg)
 {
-	char cmd[sizeof(ISO14755CMD) + NUMMAXLEN(xw.win)];
+	char cmd[] = ISO14755CMD;
 	FILE *p;
 	char *us, *e, codepoint[9], uc[UTF_SIZ];
 	unsigned long utf32;
 
-	snprintf(cmd, sizeof(cmd), ISO14755CMD, xw.win);
-	if (!(p = popen(cmd, "r")))
+    if (!(p = popen(cmd, "r")))
 		return;
 
 	us = fgets(codepoint, sizeof(codepoint), p);
