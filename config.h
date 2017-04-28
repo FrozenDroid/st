@@ -170,18 +170,19 @@ static MouseKey mkeys[] = {
 #define MODMASK ControlMask|Mod1Mask
 
 static Shortcut shortcuts[] = {
-	/* mask,       keysym,            function,      argument */
-	{ MODMASK,     XK_minus,          xzoom,         {.f = -1} },
-	{ MODMASK,     XK_equal,          xzoom,         {.f = +1} },
-	{ MODMASK,     XK_Home,           xzoomreset,    {.f =  0} },
-	{ ShiftMask,   XK_Insert,         selpaste,      {.i =  0} },
-	{ MODMASK,     XK_C,              clipcopy,      {.i =  0} },
-	{ MODMASK,     XK_V,              clippaste,     {.i =  0} },
-	{ Mod1Mask,    XK_Control_L,      iso14755,      {.i =  0} },
-	{ MODMASK,     XK_bracketright,   kscrollup,     {.i = -1} },
-	{ MODMASK,     XK_bracketleft,    kscrolldown,   {.i = -1} },
-	{ ShiftMask,   XK_Page_Up,        kscrollup,     {.i = -1} },
-	{ ShiftMask,   XK_Page_Down,      kscrolldown,   {.i = -1} },
+	/* mask,       keysym,            function,       argument */
+	{ MODMASK,     XK_minus,          xzoom,          {.f = -1} },
+	{ MODMASK,     XK_equal,          xzoom,          {.f = +1} },
+	{ MODMASK,     XK_Home,           xzoomreset,     {.f =  0} },
+	{ ShiftMask,   XK_Insert,         selpaste,       {.i =  0} },
+	{ MODMASK,     XK_C,              clipcopy,       {.i =  0} },
+	{ MODMASK,     XK_V,              clippaste,      {.i =  0} },
+	{ Mod1Mask,    XK_Control_L,      iso14755,       {.i =  0} },
+	{ MODMASK,     XK_bracketright,   kscrollup,      {.i = -1} },
+	{ MODMASK,     XK_bracketleft,    kscrolldown,    {.i = -1} },
+	{ ShiftMask,   XK_Page_Up,        kscrollup,      {.i = -1} },
+	{ ShiftMask,   XK_Page_Down,      kscrolldown,    {.i = -1} },
+	{ MODMASK,     XK_f,              externalpipe,   { .v = "xurls | tac | dmenu -p open | xargs -r xdg-open" } },
 };
 
 /*
