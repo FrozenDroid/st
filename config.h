@@ -96,7 +96,7 @@ static const char *colorname[] = {
 	"#7dc1cf",
 	"#9b64fb",
 	"#6d878d",
-	"#dddddd",
+	"#dfdfdf",
 
 	/* 8 bright colors */
 	"#404040",
@@ -106,14 +106,13 @@ static const char *colorname[] = {
 	"#4e9fb1",
 	"#8542ff",
 	"#42717b",
-	"#efefef",
+	"#ffffff",
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#d7d0c7",
+	"#ffffff",
 	"#1a1c1e", // TODO: properly fix transparency (alpha -> 0 = color -> white)
-	"black",
 	"black",
 };
 
@@ -168,24 +167,21 @@ static MouseKey mkeys[] = {
 };
 
 /* Internal keyboard shortcuts. */
-#define MODKEY Mod1Mask
+#define MODMASK ControlMask|Mod1Mask
 
 static Shortcut shortcuts[] = {
-	/* mask                 keysym          function        argument */
-	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
-	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
-	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
-	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ MODKEY|ShiftMask,     XK_Prior,       xzoom,          {.f = +1} },
-	{ MODKEY|ShiftMask,     XK_Next,        xzoom,          {.f = -1} },
-	{ MODKEY|ShiftMask,     XK_Home,        xzoomreset,     {.f =  0} },
-	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
-	{ MODKEY|ShiftMask,     XK_Insert,      clippaste,      {.i =  0} },
-	{ MODKEY|ShiftMask,     XK_C,           clipcopy,       {.i =  0} },
-	{ MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
-	{ MODKEY,               XK_Control_L,   iso14755,       {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+	/* mask,       keysym,            function,      argument */
+	{ MODMASK,     XK_minus,          xzoom,         {.f = -1} },
+	{ MODMASK,     XK_equal,          xzoom,         {.f = +1} },
+	{ MODMASK,     XK_Home,           xzoomreset,    {.f =  0} },
+	{ ShiftMask,   XK_Insert,         selpaste,      {.i =  0} },
+	{ MODMASK,     XK_C,              clipcopy,      {.i =  0} },
+	{ MODMASK,     XK_V,              clippaste,     {.i =  0} },
+	{ Mod1Mask,    XK_Control_L,      iso14755,      {.i =  0} },
+	{ MODMASK,     XK_bracketright,   kscrollup,     {.i = -1} },
+	{ MODMASK,     XK_bracketleft,    kscrolldown,   {.i = -1} },
+	{ ShiftMask,   XK_Page_Up,        kscrollup,     {.i = -1} },
+	{ ShiftMask,   XK_Page_Down,      kscrolldown,   {.i = -1} },
 };
 
 /*
