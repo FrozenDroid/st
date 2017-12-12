@@ -185,6 +185,13 @@ typedef struct {
 	const Arg arg;
 } Shortcut;
 
+typedef struct {
+	uint b;
+	uint mask;
+	void (*func)(const Arg *);
+	const Arg arg;
+} MouseKey;
+
 void die(const char *, ...);
 void redraw(void);
 
@@ -253,6 +260,7 @@ extern unsigned int actionfps;
 extern unsigned int cursorthickness;
 extern unsigned int blinktimeout;
 extern char termname[];
+extern int alpha;
 extern const char *colorname[];
 extern size_t colornamelen;
 extern unsigned int defaultfg;
@@ -267,7 +275,9 @@ extern unsigned int mousefg;
 extern unsigned int mousebg;
 extern unsigned int defaultattr;
 extern MouseShortcut mshortcuts[];
+extern MouseKey mkeys[];
 extern size_t mshortcutslen;
+extern size_t mkeyslen;
 extern Shortcut shortcuts[];
 extern size_t shortcutslen;
 extern uint forceselmod;
