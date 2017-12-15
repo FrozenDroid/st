@@ -58,8 +58,6 @@ char *argv0;
 #define ISCONTROLC1(c)		(BETWEEN(c, 0x80, 0x9f))
 #define ISCONTROL(c)		(ISCONTROLC0(c) || ISCONTROLC1(c))
 #define ISDELIM(u)		(utf8strchr(worddelimiters, u) != NULL)
-#define TLINE(y)		((y) < term.scr ? term.hist[((y) + term.histi - term.scr \
-				+ histsize + 1) % histsize] : term.line[(y) - term.scr])
 
 /* constants */
 #define ISO14755CMD		"dmenu -p codepoint: </dev/null"
