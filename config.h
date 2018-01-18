@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-char font[] = "Droid Sans Mono:pixelsize=12:antialias=true:autohint=true";
+char font[] = "Droid Sans Mono:pixelsize=16:antialias=true:autohint=true";
 int borderpx = 10;
 
 /*
